@@ -32,6 +32,7 @@
       -webkit-touch-callout: none;
     }
 
+    /* ✅ KEEP the good sizing */
     #game-frame {
       width: min(100vw, calc(100vh * 1.3333));
       height: min(100vh, calc(100vw / 1.3333));
@@ -47,8 +48,10 @@
       border: 0;
     }
   </style>
+
   <script src="ruffle/ruffle.js"></script>
 </head>
+
 <body>
   <div id="game-shell">
     <div id="game-frame">
@@ -72,6 +75,7 @@
       }));
     }
 
+    // 👇 minimal, safe touch mapping (don’t overcomplicate)
     shell.addEventListener("touchstart", (e) => {
       e.preventDefault();
       fireMouse("mousedown", e.changedTouches[0]);
